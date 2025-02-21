@@ -4,6 +4,9 @@
  */
 package com.desarrollo.tallerpractico1;
 
+import java.awt.Image;
+import javax.swing.ImageIcon;
+
 /**
  *
  * @author ASUS
@@ -15,9 +18,19 @@ public class VentanaDeRegistro extends javax.swing.JFrame {
      */
     public VentanaDeRegistro() {
         initComponents();
+        cargarImg();
         setLocationRelativeTo(null);
     }
-
+    public void cargarImg() {
+        //1. Obtener la imagen
+        ImageIcon cargarImagen = new ImageIcon("src/img/fondo1.jpg");
+        //2. Redimensionar la imagen
+        Image redimImg = cargarImagen.getImage().getScaledInstance(fondoIzq.getWidth(), fondoIzq.getHeight(), Image.SCALE_SMOOTH);
+        //3. Transformar a ImageIcon
+        ImageIcon nuevaImage = new ImageIcon(redimImg);
+        //4. Mostrar en el JLabel
+        fondoIzq.setIcon(nuevaImage);
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -45,18 +58,21 @@ public class VentanaDeRegistro extends javax.swing.JFrame {
         jSeparator1 = new javax.swing.JSeparator();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
+        jPanel1 = new javax.swing.JPanel();
+        fondoIzq = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setPreferredSize(new java.awt.Dimension(600, 400));
 
-        panelPrinc.setBackground(new java.awt.Color(203, 233, 87));
+        panelPrinc.setBackground(new java.awt.Color(82, 214, 129));
+        panelPrinc.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1.setFont(new java.awt.Font("Calibri", 3, 24)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(49, 55, 67));
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("REGISTRO");
+        panelPrinc.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 10, 232, 38));
 
-        jPanel2.setBackground(new java.awt.Color(198, 141, 254));
+        jPanel2.setBackground(new java.awt.Color(181, 255, 125));
         jPanel2.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
         jLabel2.setFont(new java.awt.Font("Arial Black", 1, 12)); // NOI18N
@@ -144,7 +160,7 @@ public class VentanaDeRegistro extends javax.swing.JFrame {
                         .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, 255, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(46, Short.MAX_VALUE))
+                .addContainerGap(25, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -176,6 +192,9 @@ public class VentanaDeRegistro extends javax.swing.JFrame {
                 .addContainerGap(31, Short.MAX_VALUE))
         );
 
+        panelPrinc.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 60, 360, -1));
+        panelPrinc.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(236, 44, 350, 10));
+
         jButton1.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jButton1.setForeground(new java.awt.Color(0, 0, 0));
         jButton1.setText("Cancelar");
@@ -184,6 +203,7 @@ public class VentanaDeRegistro extends javax.swing.JFrame {
                 jButton1ActionPerformed(evt);
             }
         });
+        panelPrinc.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 320, 115, 37));
 
         jButton2.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jButton2.setForeground(new java.awt.Color(0, 0, 0));
@@ -193,47 +213,23 @@ public class VentanaDeRegistro extends javax.swing.JFrame {
                 jButton2ActionPerformed(evt);
             }
         });
+        panelPrinc.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 320, 115, 37));
 
-        javax.swing.GroupLayout panelPrincLayout = new javax.swing.GroupLayout(panelPrinc);
-        panelPrinc.setLayout(panelPrincLayout);
-        panelPrincLayout.setHorizontalGroup(
-            panelPrincLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(panelPrincLayout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(panelPrincLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelPrincLayout.createSequentialGroup()
-                        .addComponent(jSeparator1)
-                        .addGap(14, 14, 14))
-                    .addGroup(panelPrincLayout.createSequentialGroup()
-                        .addGap(180, 180, 180)
-                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 232, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelPrincLayout.createSequentialGroup()
-                        .addGap(0, 105, Short.MAX_VALUE)
-                        .addGroup(panelPrincLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelPrincLayout.createSequentialGroup()
-                                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(108, 108, 108))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelPrincLayout.createSequentialGroup()
-                                .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(95, 95, 95)
-                                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(137, 137, 137))))))
+        jPanel1.setBackground(new java.awt.Color(255, 248, 181));
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 230, Short.MAX_VALUE)
         );
-        panelPrincLayout.setVerticalGroup(
-            panelPrincLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(panelPrincLayout.createSequentialGroup()
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(panelPrincLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(0, 60, Short.MAX_VALUE))
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 400, Short.MAX_VALUE)
         );
+
+        panelPrinc.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 230, 400));
+        panelPrinc.add(fondoIzq, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -314,6 +310,7 @@ public class VentanaDeRegistro extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel fondoIzq;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
@@ -323,6 +320,7 @@ public class VentanaDeRegistro extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
+    private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPasswordField jPasswordField1;
     private javax.swing.JPasswordField jPasswordField2;

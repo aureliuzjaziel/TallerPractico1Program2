@@ -1,0 +1,4 @@
+código de colores de las ventanas
+
+morado C68DFE
+verde CBE957
